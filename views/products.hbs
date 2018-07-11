@@ -1,9 +1,17 @@
 <h1>Products</h1>
 
+<a href="/products/new" class="btn btn-primary">Add New Product</a>
+
 {{#each products}}
 <div class="well">
-  <h1>{{brand}}</h1>
+  <a href="/products/{{_id}}">
+    <h1>{{brand}}</h1>
+  </a>
   <div>{{model}}</div>
   <div>$ {{price}}</div>
+  <div>{{lastUpdated}}</div>
+  <form method="POST" action="/products/delete/{{_id}}">
+    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+  </form>
 </div>
 {{/each}}
