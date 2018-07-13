@@ -25,10 +25,15 @@ class UserCtrl {
       .then(result => {
         if (result) res.redirect("/products");
         else {
-          res.redirect("login",{ failed: true });
+          res.redirect("login", { failed: true });
         }
       })
       .catch(e => res.render("error"));
+  }
+
+  logout(req, res) {
+    req.logout();
+    res.redirect("/users/login");
   }
 }
 
