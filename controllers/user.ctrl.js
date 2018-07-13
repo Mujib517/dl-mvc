@@ -18,17 +18,12 @@ class UserCtrl {
     res.render("login");
   }
 
-  login(req, res) {
+  login(username, password, done) {
 
-    User.findOne({ username: req.body.username, password: req.body.password })
-      .exec()
-      .then(result => {
-        if (result) res.redirect("/products");
-        else {
-          res.redirect("login", { failed: true });
-        }
-      })
-      .catch(e => res.render("error"));
+    User.findOne({ username: username, password: password }, { _id: 0, password: 0, __v: 0 }, function (err, user) {
+      if (!err) done(null, user);
+      else done("Wrong username or password");
+    });
   }
 
   logout(req, res) {
