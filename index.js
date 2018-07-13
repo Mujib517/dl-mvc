@@ -15,11 +15,15 @@ mongoose.connect("mongodb://admin:admin123@ds159344.mlab.com:59344/dl-products")
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
-app.set('view engine', 'hbs');
-app.engine('hbs', hbs.express4({
-  defaultLayout: __dirname + "/views/index.hbs",
-  partialsDir: __dirname + "/views/partials"
-}));
+app.set('view engine', 'jade'); //pug
+app.set('views', __dirname + "/my-views");
+
+
+// app.set('view engine', 'hbs');
+// app.engine('hbs', hbs.express4({
+//   defaultLayout: __dirname + "/views/index.hbs",
+//   partialsDir: __dirname + "/views/partials"
+// }));
 
 configureAuth(app);
 
