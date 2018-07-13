@@ -20,10 +20,7 @@ class UserCtrl {
 
   login(username, password, done) {
 
-    User.findOne({ username: username, password: password }, { _id: 0, password: 0, __v: 0 }, function (err, user) {
-      if (!err) done(null, user);
-      else done("Wrong username or password");
-    });
+    User.findOne({ username: username, password: password }, { _id: 0, password: 0, __v: 0 }, done);
   }
 
   logout(req, res) {
