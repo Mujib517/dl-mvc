@@ -35,8 +35,8 @@ const middlewares = require('./utilities/middlewares');
 app.use('/', defaultRouter);
 app.use('/users', userRouter);
 
-app.use(middlewares.isAuthenticated);
-app.use(middlewares.noCache);
+// app.use(middlewares.isAuthenticated);
+// app.use(middlewares.noCache);
 
 //private route
 app.use('/products', productRouter);

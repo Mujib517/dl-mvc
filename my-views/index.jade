@@ -3,19 +3,9 @@ html
     title Node MVC App
     link(href="/bootstrap.css", rel="stylesheet")
   body
-    header
-      .navbar.navbar-inverse
-        .navbar-brand Node MVC
-        ul.navbar-nav.nav
-          li
-            a(href="/") Home
-          li
-            a(href="/about") About
-          li
-            a(href="/products") Products
-          li
-            a(href="/contact") Contact
+    include ./partials/header
+
     main
       block mainblock
-    footer
-      div &copy;2018 nodemvc.com
+
+    include ./partials/footer

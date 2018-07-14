@@ -1,0 +1,17 @@
+extends ./index
+
+block mainblock
+  h1= title
+
+  if title
+    h1 Title is defined
+  else
+    h1 Title is not defined
+
+  .col-md-5
+    - each product in products
+      .well
+          h3= product.brand
+          div= product.model
+          div $#{product.price}
+      

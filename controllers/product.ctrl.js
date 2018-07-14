@@ -7,8 +7,9 @@ class ProductCtrl {
       .sort('-lastUpdated')
       .limit(10)
       .exec()
-      .then(products =>{
-        res.locals.products=products;
+      .then(products => {
+        res.locals.products = products;
+        res.locals.title = "List of Products";
         res.render("products")
       })
       .catch(err => console.log(err));
@@ -40,9 +41,9 @@ class ProductCtrl {
     const id = req.params.id;
 
     Product.findByIdAndRemove(id)
-    .exec()
-    .then(()=>res.redirect("/products"))
-    .catch(e => console.log(e));
+      .exec()
+      .then(() => res.redirect("/products"))
+      .catch(e => console.log(e));
   }
 }
 
